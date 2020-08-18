@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-author = 'David S. Fischer, Yihan Wu'
+author = 'theislab'
 author_email='david.fischer@helmholtz-muenchen.de'
 description="Predicting T-cell to epitope specificity."
 
@@ -16,17 +16,23 @@ setup(
     long_description_content_type="text/markdown",
     packages=find_packages(),
     install_requires=[
-        'tensorflow>=1.13',
-        'tensorflow-probability>=0.5',
+        'anndata',
+        'matplotlib',
         'numpy>=1.14.0',
-        'scipy',
         'pandas',
         'patsy',
+        'scikit-learn',
+        'scipy',
+        'seaborn'
     ],
     extras_require={
+        'tensorflow_cpu': [
+            'tensorflow==2.0.1',
+            'tensorflow-probability==0.7',
+        ],
         'tensorflow_gpu': [
-            "tensorflow-gpu",
-            "tensorflow-probability-gpu",
+            "tensorflow-gpu==2.0.1",
+            "tensorflow-probability-gpu==0.7",
         ],
         'docs': [
             'sphinx',
